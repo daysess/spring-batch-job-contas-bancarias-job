@@ -1,32 +1,27 @@
 package br.com.daysesoares.contasbancariasjob.dominio;
 
-import java.io.Serializable;
-
 import javax.validation.constraints.NotNull;
 
 import br.com.daysesoares.contasbancariasjob.enums.Tipo;
 
 public class Conta {
-	
-	@NotNull
+
+
 	private Integer id;
-	@NotNull
 	private Tipo tipo;
-	@NotNull
 	private Double limite;
-	@NotNull
-	private Cliente cliente;
+	private String clienteId;
 	
 	public Conta() {
 		
 	}
 
-	public Conta(@NotNull Integer id, @NotNull Tipo tipo, @NotNull Double limite, @NotNull Cliente cliente) {
+	public Conta(@NotNull Integer id, @NotNull Tipo tipo, @NotNull Double limite, @NotNull String clienteId) {
 		super();
 		this.id = id;
 		this.tipo = tipo;
 		this.limite = limite;
-		this.cliente = cliente;
+		this.clienteId = clienteId;
 	}
 
 	public Integer getId() {
@@ -53,17 +48,17 @@ public class Conta {
 		this.limite = limite;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public String getCliente() {
+		return clienteId;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setCliente(String cliente) {
+		this.clienteId = cliente;
 	}
 
 	@Override
 	public String toString() {
-		return "Conta [id=" + id + ", tipo=" + tipo + ", limite=" + limite + ", cliente=" + cliente + "]";
+		return " Conta [tipo=" + tipo + ", limite=" + limite +"]";
 	}
 		
 }

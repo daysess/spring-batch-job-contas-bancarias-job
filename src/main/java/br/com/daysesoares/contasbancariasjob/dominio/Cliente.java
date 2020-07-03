@@ -22,6 +22,8 @@ public class Cliente {
 	@NotNull
 	private Double faixaSalarial;
 	
+	private Conta conta;
+	
 	public Cliente ()
 	{
 		
@@ -31,12 +33,13 @@ public class Cliente {
 			@NotNull @Size(min = 1, max = 100) @Pattern(regexp = "[a-zA-Z\\s]+", message = "Nome deve ser alfabético") String nome,
 			@NotNull Integer idade,
 			@NotNull @Size(min = 1, max = 50) @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$", message = "Email inválido") String email,
-			@NotNull Double faixaSalarial) {
+			@NotNull Double faixaSalarial, Conta conta) {
 		super();
 		this.nome = nome;
 		this.idade = idade;
 		this.email = email;
 		this.faixaSalarial = faixaSalarial;
+		this.conta = conta;
 	}
 
 	public String getNome() {
@@ -70,10 +73,21 @@ public class Cliente {
 	public void setFaixaSalarial(Double faixaSalarial) {
 		this.faixaSalarial = faixaSalarial;
 	}
+	
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
+	}
 
 	@Override
 	public String toString() {
-		return "Cliente [nome=" + nome + ", idade=" + idade + ", email=" + email + ", faixaSalarial=" + faixaSalarial
+		return "Cliente [nome=" + nome + ", idade=" + idade + ", email=" + email + ", faixaSalarial=" 
+				+ faixaSalarial
+				+ conta.toString()
 				+ "]";
 	}
 	

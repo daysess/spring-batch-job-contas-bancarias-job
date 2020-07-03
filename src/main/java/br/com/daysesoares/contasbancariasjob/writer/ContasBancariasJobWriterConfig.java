@@ -10,7 +10,7 @@ import br.com.daysesoares.contasbancariasjob.dominio.Cliente;
 public class ContasBancariasJobWriterConfig {
 
 	@Bean
-	public ItemWriter<Cliente> jdbcCursorWriter(){
+	public ItemWriter<Cliente> processadorValidacaoWriter() {
 		return clientes -> clientes.forEach(System.out::println);
 	}
 	
